@@ -20,8 +20,6 @@ SEARCH_PARAMS = {
 app = Flask(__name__)
 
 # Get an access token from the Pet Finder API
-
-
 def get_access_token():
     # Construct the API endpoint
     endpoint = PETFINDER_API_URL + 'v2/oauth2/token'
