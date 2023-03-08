@@ -2,16 +2,19 @@ from flask import Flask
 import requests
 import json
 
-COINDESK_API_URL = 'http://api.coindesk.com/v1/bpi/currentprice.json'
+# Define the URL of the Coin Desk API
+COINDESK_API_URL = 'http://api.coindesk.com/'
 
 # Create a Flask app instance
 app = Flask(__name__)
 
-# Define the app route for the homepage
+# Define a route to fetch from the Coin Desk API
 @app.route('/')
 def index():
+    # Construct the API endpoint
+    endpoint = COINDESK_API_URL + 'v1/bpi/currentprice.json'
     # Make a request to the CoinDesk API
-    response = requests.get(COINDESK_API_URL)
+    response = requests.get(endpoint)
     # Load the response JSON data
     data = json.loads(response.text)
     # Return the data as the response to the HTTP GET request
